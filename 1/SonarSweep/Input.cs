@@ -10,11 +10,11 @@ namespace SonarSweep
 {
     public class Input
     {
-        public static async Task<int[]> GetReadings()
+        public static async Task<int[]> GetReadings(string filename)
         {
             try
             {
-                using var sr = new StreamReader("input.txt");
+                using var sr = new StreamReader(filename);
                 var input = await sr.ReadToEndAsync();
                 
                 var depthReadings = input.Split(Environment.NewLine)

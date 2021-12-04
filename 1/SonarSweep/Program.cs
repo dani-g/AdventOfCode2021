@@ -9,8 +9,10 @@ namespace SonarSweep
     {
         static async Task Main(string[] args)
         {
-            Console.WriteLine(CountDepthIncreases(await Input.GetReadings()));
-            Console.WriteLine("Press any key to exit");
+            var readings = await Input.GetReadings("input1");
+            Console.WriteLine("1_1: " + CountDepthIncreases(readings));
+            Console.WriteLine("-----------");
+            Console.WriteLine("1_2: " + CountWindowDepthIncreases(readings));
             Console.ReadKey();
         }
 
@@ -23,6 +25,18 @@ namespace SonarSweep
                 return next;
             });
             return countIncreases;
+        }
+
+        private static int CountWindowDepthIncreases(int[] depthReadings)
+        {
+            var windowReadingsSum = new List<int>();
+            for (var i = 0; i < depthReadings.Length; i++)
+            {
+                var sum = depthReadings.Skip(i).Take(3).Sum();
+                windowReadingsSum.Add(sum);
+            }
+
+            return CountDepthIncreases(windowReadingsSum.ToArray());
         }
     }
 }
