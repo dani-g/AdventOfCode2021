@@ -1,20 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace SonarSweep
+namespace AdventOfCode2021.Days
 {
-    class Program
+    public class SonarSweep : IDayExercise
     {
-        static async Task Main(string[] args)
+        public int Order => 1;
+
+        public string Name => "Day 1 - Sonar Sweep";
+
+        public async Task<int> Solve1()
         {
-            var readings = await Input.GetReadings("input1");
-            Console.WriteLine("1_1: " + CountDepthIncreases(readings));
-            Console.WriteLine("-----------");
-            Console.WriteLine("1_2: " + CountWindowDepthIncreases(readings));
-            Console.ReadKey();
+            var readings = await GetReadings();
+            return CountDepthIncreases(readings);
         }
+
+
+
+        public async Task<int> Solve2()
+        {
+            var readings = await GetReadings();
+            return CountWindowDepthIncreases(readings);
+        }
+
+        private async Task<int[]> GetReadings()
+            => (await Input.ReadInput("inputs/input_1"))
+                    .Select(int.Parse)
+                    .ToArray();
 
         private static int CountDepthIncreases(int[] depthReadings)
         {

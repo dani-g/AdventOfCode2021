@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Dive
+namespace AdventOfCode2021.Days
 {
     public class Submarine
     {
