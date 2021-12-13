@@ -31,6 +31,7 @@ namespace AdventOfCode2021
             Console.WriteLine(exercise.Name);
             Console.WriteLine($"{exercise.Order}.1 = {await exercise.Solve1()}");
             Console.WriteLine($"{exercise.Order}.2 = {await exercise.Solve2()}");
+            Console.ReadLine();
         }
 
         private static List<IDayExercise> GetAllExercises() { 
