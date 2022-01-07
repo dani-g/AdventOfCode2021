@@ -46,14 +46,14 @@ namespace AdventOfCode2021.Days
                 if (oxygenGeneratorRating.Count > 1)
                 {
                     var oxygenSum = oxygenGeneratorRating.Select(v => int.Parse(v[i].ToString())).Sum();
-                    var oxigenMostCommon = oxygenSum >= (oxygenGeneratorRating.Count / 2) ? '1' : '0';
+                    var oxigenMostCommon = oxygenSum >= (oxygenGeneratorRating.Count / 2.0d) ? '1' : '0';
                     oxygenGeneratorRating.RemoveAll(val => val[i] != oxigenMostCommon);
                 }
 
                 if (co2GeneratorRating.Count > 1)
                 {
                     var co2Sum = co2GeneratorRating.Select(v => int.Parse(v[i].ToString())).Sum();
-                    var co2MostCommon = co2Sum >= (co2GeneratorRating.Count / 2) ? '1' : '0';
+                    var co2MostCommon = co2Sum >= (co2GeneratorRating.Count / 2.0d) ? '1' : '0';
                     co2GeneratorRating.RemoveAll(val => val[i] == co2MostCommon);
                 }
             }
