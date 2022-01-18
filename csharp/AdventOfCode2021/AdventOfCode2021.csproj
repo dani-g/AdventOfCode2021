@@ -29,4 +29,26 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Days\07\" />
+    <Folder Include="Days\08\" />
+    <Folder Include="Days\09\" />
+    <Folder Include="Days\10\" />
+    <Folder Include="Days\11\" />
+    <Folder Include="Days\12\" />
+    <Folder Include="Days\13\" />
+    <Folder Include="Days\14\" />
+    <Folder Include="Days\15\" />
+    <Folder Include="Days\16\" />
+    <Folder Include="Days\17\" />
+    <Folder Include="Days\18\" />
+    <Folder Include="Days\19\" />
+    <Folder Include="Days\20\" />
+    <Folder Include="Days\21\" />
+    <Folder Include="Days\22\" />
+    <Folder Include="Days\23\" />
+    <Folder Include="Days\24\" />
+    <Folder Include="Days\25\" />
+  </ItemGroup>
+
 </Project>
