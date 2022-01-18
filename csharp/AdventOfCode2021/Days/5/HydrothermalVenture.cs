@@ -13,7 +13,7 @@ namespace AdventOfCode2021.Days
 
       public string Name => "Day 5 - Hydrothermal Venture";
 
-      public async Task<int> Solve1()
+      public async Task<long> Solve1()
       {
          var input = await Input.ReadInput("inputs/input_5");
          var pointCount = new Dictionary<Point, int>();
@@ -28,7 +28,7 @@ namespace AdventOfCode2021.Days
          return pointCount.Values.Count(val => val > 1);
       }
 
-      public async Task<int> Solve2()
+      public async Task<long> Solve2()
       {
          var input = await Input.ReadInput("inputs/input_5");
          var pointCount = new Dictionary<Point, int>();

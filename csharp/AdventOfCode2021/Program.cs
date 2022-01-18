@@ -6,48 +6,60 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2021
 {
-    public class Program
-    {
-        static async Task Main(string[] args)
-        {
+   public class Program
+   {
+      static async Task Main(string[] args)
+      {
+         while (true)
+         {
             Console.WriteLine("Choose your day to solve");
+            Console.WriteLine("0: EXIT");
             var exercises = GetAllExercises();
-            exercises.ForEach(e => {
-                Console.WriteLine($"{e.Order}: {e.Name}");
+            exercises.ForEach(e =>
+            {
+               Console.WriteLine($"{e.Order}: {e.Name}");
             });
 
             Console.Write("Type the number of your choosing: ");
             var choice = Console.ReadLine();
             var exerciseChosen = 0;
-            while (!int.TryParse(choice, out exerciseChosen)) {
-                Console.WriteLine("sigh!!");
-                Console.Write("Try again: ");
-                choice = Console.ReadLine();
+            while (!int.TryParse(choice, out exerciseChosen))
+            {
+               Console.WriteLine("sigh!!");
+               Console.Write("Try again: ");
+               choice = Console.ReadLine();
+            }
+            if(exerciseChosen == 0)
+            {
+               break;
             }
             var exercise = exercises
                 .Where(e => e.Order == exerciseChosen)
-                .FirstOrDefault() ?? throw new Exception("Can't find the exercise with number "+ exerciseChosen);
+                .FirstOrDefault() ?? throw new Exception("Can't find the exercise with number " + exerciseChosen);
 
             Console.WriteLine(exercise.Name);
             Console.WriteLine($"{exercise.Order}.1 = {await exercise.Solve1()}");
             Console.WriteLine($"{exercise.Order}.2 = {await exercise.Solve2()}");
-            Console.ReadLine();
-        }
+            Console.WriteLine();
+            Console.WriteLine();
+         }
+      }
 
-        private static List<IDayExercise> GetAllExercises() { 
-            var instances = new List<IDayExercise>();
-            System.Reflection.Assembly ass = System.Reflection.Assembly.GetEntryAssembly();
+      private static List<IDayExercise> GetAllExercises()
+      {
+         var instances = new List<IDayExercise>();
+         System.Reflection.Assembly ass = System.Reflection.Assembly.GetEntryAssembly();
 
-            foreach (System.Reflection.TypeInfo ti in ass.DefinedTypes)
+         foreach (System.Reflection.TypeInfo ti in ass.DefinedTypes)
+         {
+            if (ti.ImplementedInterfaces.Contains(typeof(IDayExercise)))
             {
-                if (ti.ImplementedInterfaces.Contains(typeof(IDayExercise)))
-                {
-                    instances.Add(ass.CreateInstance(ti.FullName) as IDayExercise);
-                }
+               instances.Add(ass.CreateInstance(ti.FullName) as IDayExercise);
             }
-            return instances
-                .OrderBy(t => t.Order)
-                .ToList();
-        }
-    }
+         }
+         return instances
+             .OrderBy(t => t.Order)
+             .ToList();
+      }
+   }
 }

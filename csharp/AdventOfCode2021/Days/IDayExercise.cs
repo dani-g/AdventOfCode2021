@@ -6,7 +6,7 @@ namespace AdventOfCode2021.Days
     {
         int Order { get; }
         string Name { get; }
-        Task<int> Solve1();
-        Task<int> Solve2();
+        Task<long> Solve1();
+        Task<long> Solve2();
     }
 }

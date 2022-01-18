@@ -12,7 +12,7 @@ namespace AdventOfCode2021.Days
 
         public string Name => "Day 1 - Sonar Sweep";
 
-        public async Task<int> Solve1()
+        public async Task<long> Solve1()
         {
             var readings = await GetReadings();
             return CountDepthIncreases(readings);
@@ -20,7 +20,7 @@ namespace AdventOfCode2021.Days
 
 
 
-        public async Task<int> Solve2()
+        public async Task<long> Solve2()
         {
             var readings = await GetReadings();
             return CountWindowDepthIncreases(readings);

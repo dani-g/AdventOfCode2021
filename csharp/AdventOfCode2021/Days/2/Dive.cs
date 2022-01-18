@@ -9,7 +9,7 @@ namespace AdventOfCode2021.Days
 
         public string Name => "Day 2 - Dive";
 
-        public async Task<int> Solve1()
+        public async Task<long> Solve1()
         {
             var commands = await Input.ReadInput("inputs/input_2");
             var submarine = new Submarine();
@@ -22,7 +22,7 @@ namespace AdventOfCode2021.Days
             return submarine.Horizontal * submarine.Depth;
         }
 
-        public async Task<int> Solve2()
+        public async Task<long> Solve2()
         {
             var commands = await Input.ReadInput("inputs/input_2");
             var submarine = new Submarine();

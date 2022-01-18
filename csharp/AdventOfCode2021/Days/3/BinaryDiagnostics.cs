@@ -12,7 +12,7 @@ namespace AdventOfCode2021.Days
 
         public string Name => "Day 3 - Binary Diagnostics";
 
-        public async Task<int> Solve1()
+        public async Task<long> Solve1()
         {
             var input = await Input.ReadInput("inputs/input_3");
 
@@ -32,7 +32,7 @@ namespace AdventOfCode2021.Days
             return gammaValue * epsilonValue;
         }
 
-        public async Task<int> Solve2()
+        public async Task<long> Solve2()
         {
             var input = await Input.ReadInput("inputs/input_3");
 

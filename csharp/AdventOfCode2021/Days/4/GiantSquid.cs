@@ -13,13 +13,13 @@ namespace AdventOfCode2021.Days
 
       public string Name => "Day 4 - Giant Squid";
 
-      public async Task<int> Solve1()
+      public async Task<long> Solve1()
       {
          var bingo = await _bingoInputReader.BuildBingoGame("inputs/input_4");
          return bingo.GetWinningScore();
       }
 
-      public async Task<int> Solve2()
+      public async Task<long> Solve2()
       {
          var bingo = await _bingoInputReader.BuildBingoGame("inputs/input_4");
          return bingo.GetLastWinningScore();
